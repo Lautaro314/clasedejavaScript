@@ -1,22 +1,12 @@
 
 //CLASE
 
-
-class secciónes {
-    constructor (secciónA , secciónB , secciónC) {
-
-        this.sección1 = secciónA;
-        this.sección2 = secciónB;
-        this.sección3 = secciónC;
-    }
-}
-
-
-class persona {
-    constructor (nombre , apellido) {
+class Estudiantes {
+    constructor (nombre , apellido , edad) {
 
         this.nombre = nombre;
         this.apellido = apellido;
+        this.edad = edad;
     }
 }
 
@@ -52,12 +42,28 @@ function opcionValida (){
 
 function nombreDelEstudiante (){
 
-    const nombre = prompt ("Agregar nombre del estudiante");
-    const apellido = prompt ("Agregar apellido del estudiante");
-
-    console.log(nombre);
-    console.log(apellido);
+    const nombreEstudiante = prompt ("Agregar nombre del estudiante");
     
+    const apellidoEstudiante = prompt ("Agregar apellido del estudiante");
+    
+    const edadEstudiante = parseFloat(prompt("Ingresa la edad del estudiante"));
+
+    
+    const estudiante = new Estudiantes(
+
+        nombreEstudiante,
+        apellidoEstudiante,
+        edadEstudiante,
+
+    );
+    
+
+    estudiantes.push (estudiante);
+    
+    alert ("ESTUDIANTE INGRESADO");
+    
+    
+    console.log(estudiantes);
     
 
 }
@@ -148,6 +154,12 @@ function calcularElPromedio () {
 
 
 //INICIO DEL PROGRAMA
+
+const estudiantes = []
+
+
+
+
 const opcionesMenu = "1-Nombre y apellido del estudiante , 2-Sección de estudio , 3-Calcular el promedio , 0-Salir";
 let opciones = parseInt(prompt(opcionesMenu));
 
