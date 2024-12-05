@@ -11,12 +11,12 @@
 //}
 
 class persona {
-    constructor (nombre, apellido , edad, sección , nota) {
+    constructor (nombre, apellido , edad, seccion , nota) {
 
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
-        this.sección = sección;
+        this.sección = seccion;
         this.nota = nota;
 
     }
@@ -154,7 +154,8 @@ function calcularElPromedio () {
     
 
 }
-    
+
+
 
 
 
@@ -172,7 +173,7 @@ function tablaDatosEstudiantes () {
                 <td>${alumnos.nombre}</td>
                 <td>${alumnos.apellido}</td>
                 <td>${alumnos.edad}</td>
-                <td>${alumnos.sección}</td>
+                <td>${alumnos.seccion}</td>
                 <td>${alumnos.nota}</td>
             </tr>
         
@@ -183,6 +184,7 @@ function tablaDatosEstudiantes () {
     
 }
 
+console.log(tablaDeDatos.innerHTML);
 
 
 
@@ -198,12 +200,12 @@ function formularioDelEstudiante (e){
 
     let nombre = (formulario.children[0].value);
     let apellido =(formulario.children[1].value);
-    let edad = (formulario.children[2].value);
-    let sección = (formulario.children[3].value);
-    let nota = (formulario.children[4].value);
+    let edad = parseInt(formulario.children[2].value);
+    let seccion = (formulario.children[3].value);
+    let nota = parseFloat(formulario.children[4].value);
     
 
-    let nuevoAlumno = new persona (nombre, apellido, edad, sección, nota);
+    let nuevoAlumno = new persona (nombre, apellido, edad, seccion, nota);
     alumno.push(nuevoAlumno)
 
 
@@ -228,11 +230,13 @@ const alumno = [
 
 ]
 
-const estudiantesFormulario = document.getElementById("formlario");
+const estudiantesFormulario = document.getElementById("formulario");
 const tablaDeDatos = document.getElementById("tablaDeDatos");
 let submit = document.getElementById("subir");
 
 //submit.addEventListener ("click" , respuestaClick)
+
+console.log(alumno);
 
 
 
