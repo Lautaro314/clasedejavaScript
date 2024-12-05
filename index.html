@@ -4,10 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px;
+        }
+
+        th, th{
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 8px
+        }
+        th{
+            background-color: #f4f4f4;
+        }
+        td{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+
+    <h1>Estudiantes</h1>
+
+    <table>
+        <thead>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+            <th>EDAD</th>
+            <th>SECCIÓN</th>
+            <th>NOTA</th>
+        </thead>
+        <tbody id="tablaDeDatos">
+            <tr>
+                <td>MARCOS</td>
+                <td>Napelo</td>
+                <td>23</td>
+                <td>B</td>
+                <td>9.30</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form id="formulario">
+        <input id = "nombre"  type="text" placeholder="nombre">
+        <input id = "apellido"  type="text" placeholder="apellido">
+        <input id = "edad"  type="number" placeholder="edad">
+        <input id = "sección"  type="text" placeholder="sección">
+        <input id = "nota"  type="number" placeholder="nota">
+        <input id = "subir"  type="submit" value="submit">
+    </form>
     
-    <h1>CURSO DE JAVASCRIPT</h1>
+    
+    
+
 
 
 <script src="./js/main.js"></script>

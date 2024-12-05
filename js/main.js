@@ -1,12 +1,24 @@
 
 //CLASE
 
-class Estudiantes {
-    constructor (nombre , apellido , edad) {
+//class Estudiantes {
+//    constructor (nombre , apellido , edad) {
+
+//        this.nombre = nombre;
+//        this.apellido = apellido;
+//        this.edad = edad;
+//    }
+//}
+
+class persona {
+    constructor (nombre, apellido , edad, sección , nota) {
 
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
+        this.sección = sección;
+        this.nota = nota;
+
     }
 }
 
@@ -49,13 +61,13 @@ function nombreDelEstudiante (){
     const edadEstudiante = parseFloat(prompt("Ingresa la edad del estudiante"));
 
     
-    const estudiante = new Estudiantes(
+    //const estudiante = new Estudiantes(
 
-        nombreEstudiante,
-        apellidoEstudiante,
-        edadEstudiante,
+    //    nombreEstudiante,
+    //    apellidoEstudiante,
+    //    edadEstudiante,
 
-    );
+    //);
     
 
     estudiantes.push (estudiante);
@@ -64,8 +76,7 @@ function nombreDelEstudiante (){
     
     
     console.log(estudiantes);
-    
-
+    tablaDatosEstudiantes ();
 }
 
 
@@ -139,13 +150,67 @@ function calcularElPromedio () {
     
     console.log(resultado);
     
-    
     return resultado
     
-    
+
 }
     
 
+
+
+
+function tablaDatosEstudiantes () {
+
+    tablaDeDatos.innerHTML ="";
+    
+    for (const alumnos of alumno){
+
+        tablaDeDatos.innerHTML = tablaDeDatos.innerHTML 
+        
+        + `  
+        <tr>
+                <td>${alumnos.nombre}</td>
+                <td>${alumnos.apellido}</td>
+                <td>${alumnos.edad}</td>
+                <td>${alumnos.sección}</td>
+                <td>${alumnos.nota}</td>
+            </tr>
+        
+        `;
+        
+    
+    }
+    
+}
+
+
+
+
+//const estudiantesFormulario = document.getElementById("formlario");
+
+
+function formularioDelEstudiante (e){
+
+    e.preventDefault();
+
+
+    let formulario = e.target;
+
+    let nombre = (formulario.children[0].value);
+    let apellido =(formulario.children[1].value);
+    let edad = (formulario.children[2].value);
+    let sección = (formulario.children[3].value);
+    let nota = (formulario.children[4].value);
+    
+
+    let nuevoAlumno = new persona (nombre, apellido, edad, sección, nota);
+    alumno.push(nuevoAlumno)
+
+
+    tablaDatosEstudiantes ();
+
+
+}
 
 
 
@@ -155,10 +220,30 @@ function calcularElPromedio () {
 
 //INICIO DEL PROGRAMA
 
-const estudiantes = []
+//const estudiantes = []
+
+const alumno = [
+    new persona("Marcos" , "Napelo" , 23 , "B" , 9),
+    new persona("Lucas" , "Capz" , 34 , "A" , 6),
+
+]
+
+const estudiantesFormulario = document.getElementById("formlario");
+const tablaDeDatos = document.getElementById("tablaDeDatos");
+let submit = document.getElementById("subir");
+
+//submit.addEventListener ("click" , respuestaClick)
 
 
 
+//const nuevoAlumno = new persona (nombre , apellido , edad , sección , nota)
+//alumno.push (nuevoAlumno);
+
+estudiantesFormulario.addEventListener("submit",formularioDelEstudiante);
+
+
+
+tablaDatosEstudiantes ();
 
 const opcionesMenu = "1-Nombre y apellido del estudiante , 2-Sección de estudio , 3-Calcular el promedio , 0-Salir";
 let opciones = parseInt(prompt(opcionesMenu));
