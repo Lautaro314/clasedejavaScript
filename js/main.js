@@ -25,9 +25,42 @@ class persona {
 
 //FUNCIONES
 
-function estudianteDeLocalStorage () {
+function guardarEnLs () {
+
+    const estudiantesDeLocalStorage = JSON.stringify(estudiantes);
+
+    localStorage.setItem("estudiantes");
+
+}
+
+
+
+
+function estudiantesDeLocalStorage () {
+
+    const estudiantes = JSON.parse (
+        localStorage.getItem("estudiantes")
+
+    ) || [
+        new persona("Marcos" , "Napelo" , 23 , "B" , 9),
+        new persona("Lucas" , "Capz" , 34 , "A" , 6),
+    ]
 
     
+    const estudiantesLocalStorage = localStorage.setItem("estudiantes");
+
+    if (estudiantesJSON === null) {
+
+        return [
+        
+            new persona("Marcos" , "Napelo" , 23 , "B" , 9),
+            new persona("Lucas" , "Capz" , 34 , "A" , 6),
+
+        ]
+
+    } else {
+        return JSON.parse(estudiantesJSON);
+    }
 
 }
 
@@ -258,7 +291,7 @@ estudiantesFormulario.addEventListener("submit",formularioDelEstudiante);
 
 tablaDatosEstudiantes ();
 
-const estudiantes = estudianteDeLocalStorage()
+const estudiantes = estudiantesDeLocalStorage()
 
 const opcionesMenu = "1-Nombre y apellido del estudiante , 2-Sección de estudio , 3-Calcular el promedio , 0-Salir";
 let opciones = parseInt(prompt(opcionesMenu));
