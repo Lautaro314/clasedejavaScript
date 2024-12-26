@@ -24,6 +24,15 @@ class persona {
 
 
 //FUNCIONES
+
+function estudianteDeLocalStorage () {
+
+    
+
+}
+
+
+
 function opcionValida (){
 
     while (opciones < 0 || opciones > 3){
@@ -249,6 +258,8 @@ estudiantesFormulario.addEventListener("submit",formularioDelEstudiante);
 
 tablaDatosEstudiantes ();
 
+const estudiantes = estudianteDeLocalStorage()
+
 const opcionesMenu = "1-Nombre y apellido del estudiante , 2-Sección de estudio , 3-Calcular el promedio , 0-Salir";
 let opciones = parseInt(prompt(opcionesMenu));
 
@@ -273,3 +284,5 @@ while (opcionValida(opciones)) {
     opciones = parseInt(prompt(opcionesMenu));
 
 }
+
+
